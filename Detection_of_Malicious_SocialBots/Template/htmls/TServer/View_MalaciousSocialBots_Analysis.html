@@ -1,0 +1,114 @@
+{% extends 'TServer/design1.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#000000;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			input{
+			font-family:'Russo One', sans-serif;
+			font-size:15px;
+			}
+
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        .style2 {color: #FFFF00}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+
+                    <form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">SELECT TYPE !!! </p>
+                            <hr>
+
+                                {% csrf_token %}
+                                <table width="568" align="center">
+                                  <tr>
+                                    <td width="287" height="44" bgcolor="#FF0000"><div align="center"><span class="style4 style2">Select Shortened Name  </span></div></td>
+                                    <td width="269"><select name="type">
+                                      <option>--- Select ---</option>
+                                      <option>t.co</option>
+                                      <option>ow.ly</option>
+                                      <option>goo.gl</option>
+                                        <option>bit.ly</option>
+
+                                    </select>
+                                    </td>
+                                  </tr>
+  <td><p>
+    <input name="submit" type="submit" class="style1" value="Search">
+        </p>
+          </td>
+  </tr>
+                                </table>
+						</fieldset>
+					</form>
+
+
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">Malicious Social Bots Using Learning
+Automata With URL Features(On Tweets) !!! </p>
+                            <hr>
+ 					<div class="userdetails">
+                    <table border="1">
+                        <tr>
+                            <th bgcolor="#FF0000"><span class="style2">USER NAME</span></th>
+                            <th bgcolor="#FF0000"><span class="style2">TWEET NAME</span></th>
+                            <th bgcolor="#FF0000"><span class="style2">TWEET DESC</span></th>
+                            <th bgcolor="#FF0000"><span class="style2">USES</span></th>
+                            <th bgcolor="#FF0000"><span class="style2">REVIEW ANALYSIS</span></th>
+                        </tr>
+                        {% for i in objs %}
+                        <tr>
+                        <td bgcolor="#FFFF00" style="color:black" ><span class="style1">{{i.uname}}</span></td>
+                        <td bgcolor="#FFFF00" style="color:black" ><span class="style1">{{i.names}}</span></td>
+                        <td bgcolor="#FFFF00" style="color:red"><span class="style1">{{i.tdesc}}</span></td>
+                        <td bgcolor="#FFFF00" style="color:red"><span class="style1">{{i.uses}}</span></td>
+                        <td bgcolor="#FFFF00" style="color:red"><span class="style1">{{i.sanalysis}}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    </div>
+                    <div class="sideimage"></div>
+
+
+
+
+
+
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

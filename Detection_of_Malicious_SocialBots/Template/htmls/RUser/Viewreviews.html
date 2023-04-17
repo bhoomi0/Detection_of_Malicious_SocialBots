@@ -1,0 +1,97 @@
+{% extends 'RUser/design.html' %}
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#000000;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			.tweettext{
+
+    border: 2px solid yellowgreen;
+    width: 1104px;
+    height: 442px;
+    overflow: scroll;
+    background-color:;
+}
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-style: italic;
+}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">VIEW ALL USER REVIEWS !!! </p>
+                            <hr>
+                            <div class="tweettext">
+                                <table border="1">
+                                    <tr>
+
+                                    <th style="color:red; font-size:20px; font-family:fantasy" >User Name</th>
+                                    <th style="color:red; font-size:20px; font-family:fantasy">Tweet Name</th>
+                                    <th style="color:red; font-size:20px; font-family:fantasy">Review</th>
+                                    <th style="color:red; font-size:20px; font-family:fantasy">Sentiment Analysis</th>
+                                        <th style="color:red; font-size:20px; font-family:fantasy">Review Date and Time</th>
+                                         <th style="color:red; font-size:20px; font-family:fantasy">suggestion</th>
+
+
+                                    </tr>
+{% for object in list_objects %}
+
+
+                                    <tr>
+                                        <td style="color:red; font-size:25px; font-family:fantasy" >{{object.uname}}</td>
+                                         <td style="font-family:monospace; font-size:19px; ">{{object.tname}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.ureview}}</td>
+                                        <td style="font-family:monospace; font-size:19px;  ">{{object.sanalysis}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.dt}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.suggestion}}</td>
+                                  </tr>
+
+
+
+
+
+
+
+                                        {% endfor %}
+                                </table>
+                            </div>
+
+
+
+
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    <tr>

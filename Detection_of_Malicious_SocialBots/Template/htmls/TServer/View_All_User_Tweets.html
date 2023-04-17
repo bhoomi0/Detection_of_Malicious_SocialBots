@@ -1,0 +1,82 @@
+{% extends 'TServer/design1.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#000000;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			input{
+			font-family:'Russo One', sans-serif;
+			font-size:15px;
+			}
+
+		.style1 {color: #FF0000}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center">ANALYSIS RATINGS</p>
+                            <hr>
+ 					<div class="userdetails">
+                    <table border="1">
+                        <tr>
+                            <th bordercolor="#F0F0F0" bgcolor="#FFFF00"><span class="style1">TWEETER NAMES</span></th>
+                            <th bordercolor="#F0F0F0" bgcolor="#FFFF00"><span class="style1">TWEET NAME</span></th>
+                            <th bordercolor="#F0F0F0" bgcolor="#FFFF00"><span class="style1">LIKES</span></th>
+                            <th bordercolor="#F0F0F0" bgcolor="#FFFF00"><span class="style1">DISLIKES</span></th>
+                            <th bordercolor="#F0F0F0" bgcolor="#FFFF00"><span class="style1">TWEET ANALYSIS</span></th>
+                            <th bordercolor="#F0F0F0" bgcolor="#FFFF00"><span class="style1">TWEET DESCRIPTION</span></th>
+                            <th bordercolor="#F0F0F0" bgcolor="#FFFF00"><span class="style1">TWEET USES</span></th>
+                        </tr>
+                        {% for i in objects %}
+                        <tr>
+                        <td style="color:black" >{{i.uname}}</td>
+                        <td style="color:black" >{{i.names}}</td>
+                        <td style="color:red">{{i.ratings}}</td>
+                        <td style="color:red">{{i.dislikes}}</td>
+                        <td style="color:red">{{i.sanalysis}}</td>
+                        <td style="color:red">{{i.tdesc}}</td>
+                            <td style="color:red">{{i.uses}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    </div>
+                    <div class="sideimage"></div>
+
+
+
+
+
+
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

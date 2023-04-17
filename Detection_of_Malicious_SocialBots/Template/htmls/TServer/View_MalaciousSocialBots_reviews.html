@@ -1,0 +1,119 @@
+{% extends 'TServer/design1.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#000000;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			input{
+			font-family:'Russo One', sans-serif;
+			font-size:15px;
+			}
+
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        .style2 {color: #FFFF00}
+        .style4 {color: #FFFF00; font-weight: bold; }
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+
+                    <form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">SELECT SENTIMENT TYPE !!! </p>
+                            <hr>
+
+                                {% csrf_token %}
+                                <table width="568" align="center">
+                                  <tr>
+                                    <td width="287" height="44" bgcolor="#FF0000"><div align="center"><span class="style4 style2">Select Sentiment Type  </span></div></td>
+                                    <td width="269"><select name="type">
+                                      <option>--- Select ---</option>
+                                      <option>False Negative</option>
+                                      <option>False Positive</option>
+                                      <option>Malicious Bots</option>
+
+                                    </select>
+                                    </td>
+                                  </tr>
+  <td><p>
+    <input name="submit" type="submit" class="style1" value="Search">
+        </p>
+          </td>
+  </tr>
+                                </table>
+						</fieldset>
+					</form>
+
+
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">VIEW PARAMETER RESULTS !!! </p>
+                            <hr>
+                            <div class="tweettext">
+                                <table border="1">
+                                    <tr>
+
+
+                                    <th bgcolor="#FF0000"><span class="style4">User Name</span></th>
+                                    <th bgcolor="#FF0000"><span class="style4">Tweet Name</span></th>
+                                    <th bgcolor="#FF0000"><span class="style4">Review</span></th>
+                                    <th bgcolor="#FF0000"><span class="style4">Review Analysis</span></th>
+                                        <th bgcolor="#FF0000"><span class="style4">Review Date and Time</span></th>
+                                         <th bgcolor="#FF0000"><span class="style4">Suggestion</span></th>
+                                    </tr>
+
+ {% for object in objs %}
+                                    <tr>
+                                        <td style="color:red; font-size:25px; font-family:fantasy" >{{object.uname}}</td>
+                                         <td style="font-family:monospace; font-size:19px; ">{{object.tname}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.ureview}}</td>
+                                        <td style="font-family:monospace; font-size:19px;  ">{{object.sanalysis}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.dt}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.suggestion}}</td>
+                                  </tr>
+
+
+
+
+
+
+
+                                        {% endfor %}
+                              </table>
+                            </div>
+
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

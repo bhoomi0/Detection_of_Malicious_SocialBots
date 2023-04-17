@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remote User</title>
+<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+<style>
+    body{
+    background-color:;
+	font-family: 'Russo One', sans-serif;
+	background-color: #000000;
+    }
+    h1{
+    color:white;
+    }
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #fff;
+  color: Red;
+}
+
+.topnav a.active {
+  background-color:#FFFFFF;
+  color: white;
+}
+.style1 {color: #FF0000}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+
+<h1 class="style1">Detection of Malicious Social Bots Using Learning Automata With URL Features in Twitter Network
+</h1>
+
+<div  class="topnav">
+  
+
+  <a href="{% url 'CreateTweet' %}">CREATE YOUR TWEET</a>
+     <a href="{% url 'ViewAllTweets' %}">VIEW ALL TWEET DETAILS</a>
+     <a href="{% url 'Viewreviews' %}">VIEW ALL TWEET'S REVIEWS</a>
+
+
+<a href="{% url 'ViewYourProfile' %}">VIEW YOUR PROFILE</a>
+  <a href="{% url 'login' %}">LOGOUT</a>
+
+
+</div>
+
+
+
+<div class="mainholder">
+{% block userblock %}
+{% endblock %}
+</div>
+</body>
+</html>

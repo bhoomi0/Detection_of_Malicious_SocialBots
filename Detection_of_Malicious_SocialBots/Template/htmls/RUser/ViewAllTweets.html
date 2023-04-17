@@ -1,0 +1,98 @@
+{% extends 'RUser/design.html' %}
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#000000;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			.tweettext{
+
+    border: 2px solid yellowgreen;
+    width: 1104px;
+    height: 442px;
+    overflow: scroll;
+    background-color:;
+}
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						
+						<fieldset>
+						<p class="text-uppercase pull-center style1">VIEW ALL TWEET DETAILS !!! </p>
+						 {% for object in list_objects %}
+
+                            <hr>
+ 							<div class="form-group">
+                                <P><span class="style1">USER NAME</span> = {{object.userId.username}}</P>
+                            </div>
+
+							<div class="form-group">
+                                <P><span class="style1">TWEET NAME</span> = {{object.names}}</P>
+                            </div>
+
+							<div class="form-group">
+                                <P><span class="style1">TWEET USES</span> = {{object.uses}}</P>
+							</div>
+
+							<div class="form-group">
+                                <p><span class="style1">TWEET DESCRIPTION </span> = {{object.tdesc}}</p>
+
+							</div>
+
+							<div class="form-group">
+                                <p><span class="style1">LIKE</span> = <a href="{% url 'ratings' object.id %}">Like({{object.ratings}})</a></p>
+
+							</div>
+
+							<div class="form-group">
+                                <p><span class="style1">DISLIKE</span> = <a href="{% url 'dislikes' object.id %}">Dislike({{object.dislikes}})</a></p>
+
+							</div>
+
+							<div class="form-group">
+                                <p><span class="style1">REVIEW</span> = <a href="{% url 'Review' object.id%}">Review </a></p>
+
+							</div>
+
+
+
+ {% endfor %}
+						</fieldset>
+						
+						  
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    <tr>
